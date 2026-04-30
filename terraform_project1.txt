@@ -1,0 +1,56 @@
+Project 1: Azure Linux VM Provisioning using Terraform
+
+Project Overview This project demonstrates how to provision a Linux
+Virtual Machine in Microsoft Azure using Terraform. The goal is to
+automate infrastructure creation, store configuration in GitHub, and
+access the VM securely using SSH.
+
+Objectives - Automate infrastructure deployment using Terraform - Create
+and manage Azure resources - Use GitHub for version control - Access
+Linux VM using SSH
+
+Tools & Technologies - Terraform - Microsoft Azure - Azure CLI - Linux
+(Ubuntu) - Git & GitHub
+
+Architecture The following resources were created: - Resource Group -
+Virtual Network (VNet) - Subnet - Public IP Address - Network
+Interface - Linux Virtual Machine
+
+Implementation Steps
+
+Step 1: Prerequisites Setup - Installed Terraform - Installed Azure
+CLI - Installed Git - Created GitHub repository
+
+Step 2: Azure Authentication az login az account show
+
+Step 3: Project Setup mkdir terraform-azure-vm cd terraform-azure-vm git
+init
+
+.gitignore: .terraform/ .tfstate .tfstate.backup
+
+Step 4: Terraform Configuration Configured provider: provider “azurerm”
+{ features {} }
+
+Step 5: SSH Key Generation ssh-keygen -t rsa -b 4096
+
+Step 6: Terraform Execution terraform init terraform validate terraform
+plan terraform apply
+
+Step 7: Access VM ssh azureuser@
+
+Step 8: GitHub Integration git add . git commit -m “Initial commit” git
+push origin main
+
+Challenges Faced & Solutions 1. Missing features block → Added features
+{} 2. Subscription disabled → Reactivated subscription 3. GitHub large
+file error → Removed .terraform and fixed history 4. Git push error →
+Created commit and branch
+
+Key Learnings - Terraform basics - Azure provisioning - Git
+troubleshooting - SSH access - Real-world debugging
+
+Future Enhancements - Auto-install software - Multi-environment setup -
+Terraform modules - Remote backend
+
+Conclusion This project demonstrates end-to-end Azure VM provisioning
+using Terraform with practical DevOps concepts.
